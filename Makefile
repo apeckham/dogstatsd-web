@@ -3,7 +3,7 @@ dogstatsd:
 
 start:
 	docker build . -t fluent-ext
-	docker run --link dogstatsd:dogstatsd -e CORS_ALLOW_ORIGINS=http://localhost:8000 -ti -p 8888:8888 fluent-ext
+	docker run --link dogstatsd:dogstatsd -e CORS_ALLOW_ORIGINS=http://localhost:8000 -ti -p 8888:8888 fluent-ext -vv
 
 shell:
 	docker build . -t fluent-ext
