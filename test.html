@@ -3,9 +3,6 @@
   x = new(this.XMLHttpRequest || ActiveXObject)('MSXML2.XMLHTTP.3.0');
   x.open('POST', 'http://localhost:8888/', 1);
   x.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  x.onreadystatechange = function () {
-    x.readyState > 3 && callback && callback(x.responseText, x);
-  };
-  x.send("json=" + JSON.stringify({"type": "count", "key": "from.the.browser", "value": 101, "tags": {"url": "abcdefg"}}));
+  x.send("json=" + JSON.stringify({"type": "timing", "key": "xxx.from.the.browser", "value": 566, "tags": {"url": "abcdefg"}}));
 </script>
 </html>
