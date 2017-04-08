@@ -20,6 +20,5 @@
 <match **>
   type dogstatsd
   host <%= ENV['DOGSTATSD_HOST'] || 'localhost' %>
-  port <%= ENV['DOGSTATSD_PORT'] || 8125 %>
-  metric_type increment
+  port <%= ENV['DOGSTATSD_PORT'] || '8125' %>
 </match>
