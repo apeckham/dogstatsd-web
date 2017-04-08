@@ -1,8 +1,12 @@
 <html>
 <script>
-  x = new(this.XMLHttpRequest || ActiveXObject)('MSXML2.XMLHTTP.3.0');
-  x.open('POST', 'http://localhost:8888/', 1);
-  x.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  x.send("json=" + JSON.stringify({"type": "timing", "key": "xxx.from.the.browser", "value": 10500, "tags": {"url": "abcdefg"}}));
+  try {
+    x = new(this.XMLHttpRequest || ActiveXObject)('MSXML2.XMLHTTP.3.0');
+    x.open('POST', 'http://localhost:8888/', 1);
+    x.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    x.send("json=" + JSON.stringify({"type": "timing", "key": "xxx.from.the.browser", "value": 10500, "tags": {"url": "abcdefg"}}));
+  } catch (e) {
+    window.console && console.log(e);
+  }
 </script>
 </html>
