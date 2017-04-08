@@ -10,7 +10,7 @@
   bind 0.0.0.0
   body_size_limit 32k
   keepalive_timeout 10s
-  cors_allow_origins ["http://localhost:8000"]
+  cors_allow_origins <%= JSON.dump((ENV['CORS_ALLOW_ORIGINS'] || "").split(",")) %>
 </source>
 
 <filter **>

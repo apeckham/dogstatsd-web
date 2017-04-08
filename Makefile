@@ -3,7 +3,11 @@ dogstatsd:
 
 start:
 	docker build . -t fluent-ext
-	docker run --link dogstatsd:dogstatsd -ti -p 8888:8888 fluent-ext fluentd -c /fluentd/etc/fluent.conf -vv
+	docker run --link dogstatsd:dogstatsd -e CORS_ALLOW_ORIGINS=http://localhost:8000 -ti -p 8888:8888 fluent-ext
+
+shell:
+	docker build . -t fluent-ext
+	docker run -ti fluent-ext sh
 
 nc:
 	(echo "hello world!" && date) | nc -vuw 0 127.0.0.1 8125
